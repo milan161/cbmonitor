@@ -1,0 +1,37 @@
+# ============================================================
+# CBMonitor 源码仓库（项目根 = src/，物理隔离）
+# D:\Study\ARB\CBMonitor 下 data/ docs/ deploy/ log/ 等在仓库外，自然不上传。
+# 机密集中在 D:\Study\ARB\account_info（仓库外），无需逐条忽略。
+# 本文件只管 src/ 内部的敏感/非源码内容。
+# ============================================================
+
+# --- 本地项目指引（含内部口径，不传）---
+agents.md
+# --- 本地代理/VPN 启动脚本（仅本机用，不传）---
+proxy.bat
+
+# --- 缓存 / 构建产物 & 依赖 ---
+__pycache__/
+*.pyc
+node_modules/
+.venv/
+venv/
+dist/
+.vite/
+
+# --- 日志（不传）---
+*.log
+
+# --- AI 临时调试 / 续传 session / 内部运行态（不传）---
+_ai_backup/
+scratch/
+.omo/
+.codegraph/
+
+# --- 实盘/运行时数据库（纵深防御 · 第二道防线）---
+# ✅ 2026-10-07 起 db 已迁至与 src/ 平级的 database/cb_monitor.db（物理隔离 = 第一道防线）。
+#    本规则保留作纵深防御：防将来有人把库误放回 src/ 内，或被 `git add -f` 绕过时兜底。
+*.db
+*.db-shm
+*.db-wal
+**/*.bak*
